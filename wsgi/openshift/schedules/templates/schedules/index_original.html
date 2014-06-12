@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'schedules/style.css' %}" />
+
+{% if latest_schedule_list %}
+    <ul>
+    {% for schedule in latest_schedule_list %}
+        <li><a href="{% url 'schedules:detail' schedule.id %}">{{ schedule.question }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No schedules are available.</p>
+{% endif %}
